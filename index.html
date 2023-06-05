@@ -41,82 +41,129 @@
                 <h1>WELCOME TO TASK PLANNER</h1>
                </section>
         <!--header content-->
-         <!--forms-->
-         <form action="/action_page.php">
-          <div class="form-group">
-            <label for="Name">Name:</label>
-            <input type="text" class="form-control" id="Name">
-          </div>
-          <div class="form-group">
-            <label for="Description">Description:</label>
-            <input type="text" class="form-control" id="Description">
-          </div>
-          <div class="form-group">
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Assigned To
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Alexis</a></li>
-              <li><a href="#">Tarek</a></li>
-              <li><a href="#">Kalai</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="Duedate">Duedate:</label>
-          <input type="date" class="form-control" id="Duedate">
-        </div>
-        <div class="form-group">
-          <label for="Status">Status:</label>
-          <input type="text" class="form-control" id="Status">
-        </div>
-        <!--forms-->
+         
         <!--cards-->
-        
-        <div class="row">
-  <div class="col-sm-6 mb-3 mb-sm-0">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="container mt-4 mb-4">
+          <div class="row">
+              <div class="col-md-4 col-sm-6">
+                  <div class="user-form p-4 border rounded-2" id="create-form" action="">
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" class="form-control" id="name" name="name">
+                      <p id="invalidName" class="error"></p>
+                      <br>
+                      <label for="description" class="form-label">Description</label>
+                      <textarea class="form-control" id="description" name="description"></textarea>
+                      <p id="invalidDescription" class="error"></p>
+                      <br>
+                      <label for="assigned-to" class="form-label">Assigned to</label>
+                      <input type="text" class="form-control" id="assigned-to" name="assigned-to">
+                      <p id="invalidAssignedTo" class="error"></p>
+                      <br>
+                      <label for="due-Date" class="form-label">Due Date</label>
+                      <input type="date" class="form-control" id="due-Date" name="due-Date">
+                      <br>
+                      <label for="status" class="form-label">Status</label>
+                      <select name="status" class="form-select" id="status">
+                          <option value="to-do">to-do</option>
+                          <option value="in-progress">in-progress</option>
+                          <option value="review">review</option>
+                          <option value="done">done</option>
+                      </select>
+
+                      </div>
+              </div>
+              <div class="col-md-8 col-sm-6 col-12 layout">
+                  <div class="row margin-top-5">
+                      <div class="col-md-4 col-12 text-center">
+                          <label class="filter-label">Filter</label>
+                      </div>
+                      <div class="col-md-4 col-6 text-center">
+                          <div class="dropdown">
+                              <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                  aria-expanded="false">
+                                  Assignee
+                              </button>
+                              <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="#">Tarek</a></li>
+                                  <li><a class="dropdown-item" href="#">Alexis</a></li>
+                                  <li><a class="dropdown-item" href="#">Kalai</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-md-4 col-6 text-center">
+                          <div class="dropdown">
+                              <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                  aria-expanded="false">
+                                  Status
+                              </button>
+                              <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="#">TO DO</a></li>
+                                  <li><a class="dropdown-item" href="#">IN PROGRESS</a></li>
+                                  <li><a class="dropdown-item" href="#">REVIEW</a></li>
+                                  <li><a class="dropdown-item" href="#">DONE</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row margin-top-5" id="taskCards">
+
+                    <div class="card" style="width: 10rem height :30px;">
+                      <div class="card-body">
+                        <h5 class="card-title">Card 1</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"> wireframe model.</p>
+                        <p class="card-text">create a wireframe model.</p>
+                        <input class="btn btn-primary" type="Edit" value="Edit">
+                        <input class="btn btn-primary" type="Delete" value="Delete">
+                    </div>
+                    <div class="card" style="width: 10rem height :30px;">
+                      <div class="card-body">
+                        <h5 class="card-title">Card 2</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">coding</h6>
+                        <p class="card-text">write a HTML code for the task planner.</p>
+                        <input class="btn btn-primary" type="Edit" value="Edit">
+                        <input class="btn btn-primary" type="Delete" value="Delete">
+                      
+                      </div>
+                    </div>
+                    <div class="card" style="width: 10rem height :30px;">
+                      <div class="card-body">
+                        <h5 class="card-title">Card 3</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Add css</h6>
+                        <p class="card-text">write a css code to the HTML .</p>
+                        <input class="btn btn-primary" type="Edit" value="Edit">
+                        <input class="btn btn-primary" type="Delete" value="Delete">
+                        
+                      </div>
+                    </div>
+                    <div class="card" style="width: 10rem height :30px;">
+                      <div class="card-body">
+                        <h5 class="card-title">Card 4</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Responsive web</h6>
+                        <p class="card-text">Create a responsive web page using HTML and css.</p>
+                        <input class="btn btn-primary" type="Edit" value="Edit">
+                        <input class="btn btn-primary" type="Delete" value="Delete">
+                        
+                      </div>
+                    </div>
+                    <div class="card" style="width: 10rem height :30px;">
+                      <div class="card-body">
+                        <h5 class="card-title">Card 5</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Java script code</h6>
+                        <p class="card-text">write a java script code to the task planner web page.</p>
+                        <input class="btn btn-primary" type="Edit" value="Edit">
+                        <input class="btn btn-primary" type="Delete" value="Delete">
+                      </div>
+                    </div>
+                  </div>
+              </div>
           </div>
-        </div>
-</div>
-        <!--cards-->
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+          crossorigin="anonymous"></script>
+          <script src="./script.js" type="module" defer></script>
+  
   </body>
+  
   </html>
+        
